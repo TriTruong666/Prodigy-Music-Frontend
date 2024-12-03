@@ -8,22 +8,24 @@ export const Navbar = () => {
   return (
     <div className="w-full h-[100px] flex items-center px-20 bg-homepage_background justify-between lg:px-10 xl:px-20">
       <div className="flex w-fit">
-        <Image
-          className="object-cover md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px] xl:w-[40px] xl:h-[40px]"
-          alt="logo"
-          src={logo}
-          quality={50}
-        />
+        <Link href="/">
+          <Image
+            className="object-cover md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px] xl:w-[40px] xl:h-[40px]"
+            alt="logo"
+            src={logo}
+            quality={50}
+          />
+        </Link>
       </div>
       <div className="ml-36 flex gap-x-16 text-background pb-1">
         <Link
-          href="/publish"
+          href="/publish/addtrack"
           className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Make music
         </Link>
         <Link
-          href="/publish"
+          href="/publish/confirm"
           className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Explore Prodigy
