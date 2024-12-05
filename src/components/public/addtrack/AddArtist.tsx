@@ -6,7 +6,9 @@ import { ThemeProvider } from "@material-tailwind/react";
 import { IoAddSharp, IoReturnDownBackSharp } from "react-icons/io5";
 import { Avatar } from "@material-tailwind/react";
 import { Button as MaterialButton } from "@material-tailwind/react";
+import { useAppDispatch } from "@/context/store";
 import Link from "next/link";
+import { toggleAddArtistDialog } from "@/context/slices/dialog/dialogSlices";
 interface AddArtistProps {
   setStep: (value: number) => void;
   setProgress: (value: number) => void;
@@ -44,9 +46,13 @@ export const AddArtist: React.FC<AddArtistProps> = ({
   setProgress,
   setStep,
 }) => {
+  const dispatch = useAppDispatch();
   const [showAddButton, setShowAddButton] = React.useState<boolean>(false);
 
   //   handle func
+  const handleToggleAddArtistDialog = () => {
+    dispatch(toggleAddArtistDialog());
+  };
   const handleToggleAddArtistOn = () => {
     setShowAddButton(true);
   };
@@ -90,7 +96,7 @@ export const AddArtist: React.FC<AddArtistProps> = ({
       {showAddButton && (
         <>
           <div className="flex flex-col ml-[50px]">
-            <div className="flex items-center justify-between px-[20px] border border-gray-800 rounded-lg mb-[20px]">
+            <div className="flex items-center justify-between px-[20px] border border-gray-800 rounded-lg mb-[20px] cursor-pointer">
               <div className="flex flex-col py-[10px] gap-y-[5px]">
                 <p className="text-[15px] text-gray-700">Featured artist</p>
                 <p className="text-[18px] font-semibold">VSTRA</p>
@@ -102,7 +108,10 @@ export const AddArtist: React.FC<AddArtistProps> = ({
               />
             </div>
             <IconContext.Provider value={{ color: "#616161", size: "22px" }}>
-              <div className="flex items-center gap-x-[15px] cursor-pointer">
+              <div
+                onClick={handleToggleAddArtistDialog}
+                className="flex items-center gap-x-[15px] cursor-pointer"
+              >
                 <IoAddSharp />
                 <p className="text-[18px] text-gray-700">
                   Add another featured artist

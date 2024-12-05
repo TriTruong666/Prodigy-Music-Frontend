@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { IconContext } from "react-icons";
 import { IoCloseOutline } from "react-icons/io5";
+import { useAppSelector } from "@/context/store";
 import Link from "next/link";
 import { useState } from "react";
 // import components
@@ -16,10 +17,13 @@ import logo from "@/assets/prodigy-logo-light.png";
 export default function AddTrack() {
   const [progress, setProgress] = useState(0);
   const [step, setStep] = useState(1);
-
+  // selector
+  const isToggleAddArtistDialog = useAppSelector(
+    (state) => state.dialog.addArtistDialog.isToggleDialog
+  );
   return (
     <div className="font-jost w-screen overflow-hidden max-h-screen h-screen bg-background relative">
-      {/* <AddArtistDialog /> */}
+      {isToggleAddArtistDialog && <AddArtistDialog />}
       <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
         <div
           className="bg-homepage_background h-1.5 rounded-full dark:bg-homepage_background transition-all duration-1000 ease-in-out"
