@@ -7,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Avatar } from "@/components/ui/avatar";
 // import components
-import { Navbar } from "@/components/public/Navbar";
-import { Footer } from "@/components/public/Footer";
+import { Navbar } from "@/components/public/navbar/Navbar";
+import { Footer } from "@/components/public/footer/Footer";
 // import assets
 import image from "@/assets/pexels-qhung999-27200179.jpg";
 import logo from "@/assets/prodigy-logo-dark.png";

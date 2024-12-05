@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GoDotFill } from "react-icons/go";
 import { IconContext } from "react-icons";
-import { Input } from "../ui/input";
 import { Button } from "@material-tailwind/react";
 import { IoReturnDownBackSharp } from "react-icons/io5";
-export const AddTitle = () => {
+
+interface AddTitleProps {
+  setStep: (value: number) => void;
+  setProgress: (value: number) => void;
+}
+
+export const AddTitle: React.FC<AddTitleProps> = ({ setStep, setProgress }) => {
+  const handleGoToNextStep = () => {
+    setStep(2);
+    setProgress(25);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleGoToNextStep();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col w-[50%] gap-y-[25px]">
       <h2 className="text-[28px] tracking-wide font-normal">
@@ -14,7 +38,7 @@ export const AddTitle = () => {
         <input
           type="text"
           id="floating_outlined"
-          className="block px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg border border-input border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-800 peer"
+          className="block px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-transparent rounded-lg border border-input border-gray-500 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-800 peer"
           placeholder=" "
         />
         <label
@@ -24,7 +48,6 @@ export const AddTitle = () => {
           Track title
         </label>
       </div>
-
       <div className="flex flex-col text-gray-600">
         <p>Please DON'T:</p>
         <IconContext.Provider value={{ color: "#949494" }}>
@@ -44,8 +67,10 @@ export const AddTitle = () => {
           </div>
         </IconContext.Provider>
       </div>
+
       <div className="flex items-center gap-x-[25px]">
         <Button
+          onClick={handleGoToNextStep}
           className="font-jost font-500 rounded-full w-fit py-4 px-12 text-base tracking-wider normal-case"
           ripple={true}
         >

@@ -3,17 +3,27 @@ import Image from "next/image";
 import { IconContext } from "react-icons";
 import { IoCloseOutline } from "react-icons/io5";
 import Link from "next/link";
+import { useState } from "react";
 // import components
-import { AddTitle } from "@/components/public/AddTitle";
+import { AddTitle } from "@/components/public/addtrack/AddTitle";
+import { AddFile } from "@/components/public/addtrack/AddFile";
+import { AddGenre } from "@/components/public/addtrack/AddGenre";
+import { AddRelease } from "@/components/public/addtrack/AddRelease";
+import { AddArtist } from "@/components/public/addtrack/AddArtist";
+import { AddArtistDialog } from "@/components/public/dialog/AddArtistDialog";
 // import assets
 import logo from "@/assets/prodigy-logo-light.png";
 export default function AddTrack() {
+  const [progress, setProgress] = useState(0);
+  const [step, setStep] = useState(1);
+
   return (
-    <div className="font-jost w-screen overflow-hidden max-h-screen h-screen bg-background">
+    <div className="font-jost w-screen overflow-hidden max-h-screen h-screen bg-background relative">
+      {/* <AddArtistDialog /> */}
       <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
         <div
-          className="bg-homepage_background h-1.5 rounded-full dark:bg-homepage_background transition-all duration-500 ease-in-out"
-          style={{ width: "20%" }}
+          className="bg-homepage_background h-1.5 rounded-full dark:bg-homepage_background transition-all duration-1000 ease-in-out"
+          style={{ width: `${progress}%` }}
         ></div>
       </div>
       <div className="flex items-center justify-between py-7 px-16">
@@ -28,7 +38,7 @@ export default function AddTrack() {
             Let's build your release
           </p>
         </div>
-        <IconContext.Provider value={{ size: "20px", color: "#000000" }}>
+        <IconContext.Provider value={{ size: "20px", color: "#757575" }}>
           <Link href="/">
             <div className="flex items-center gap-x-[10px]">
               <p className="text-gray-600">Close</p>
@@ -37,9 +47,16 @@ export default function AddTrack() {
           </Link>
         </IconContext.Provider>
       </div>
-      {/* components */}
-      <div className="flex justify-center my-[225px]">
-        <AddTitle />
+      <div className="flex justify-center my-[100px]">
+        {step === 1 && <AddTitle setStep={setStep} setProgress={setProgress} />}
+        {step === 2 && <AddFile setStep={setStep} setProgress={setProgress} />}
+        {step === 3 && <AddGenre setStep={setStep} setProgress={setProgress} />}
+        {step === 4 && (
+          <AddRelease setStep={setStep} setProgress={setProgress} />
+        )}
+        {step === 5 && (
+          <AddArtist setStep={setStep} setProgress={setProgress} />
+        )}
       </div>
     </div>
   );

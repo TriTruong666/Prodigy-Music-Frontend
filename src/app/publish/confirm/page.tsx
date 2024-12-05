@@ -34,7 +34,10 @@ export default function PublishConfirm() {
       <div className="flex text-homepage_background items-center justify-around px-[250px] my-[100px]">
         <div className="flex flex-col gap-y-[10px]">
           <IconContext.Provider value={{ size: "20px", color: "#791049" }}>
-            <Link href="/" className="flex gap-x-2 items-center">
+            <Link
+              href="/publish/addtrack"
+              className="flex gap-x-2 items-center"
+            >
               <IoReturnDownBackSharp />
               <p className="text-[18px] underline">Back</p>
             </Link>
