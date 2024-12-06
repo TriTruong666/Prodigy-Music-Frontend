@@ -96,7 +96,10 @@ export const AddArtist: React.FC<AddArtistProps> = ({
       {showAddButton && (
         <>
           <div className="flex flex-col ml-[50px]">
-            <div className="flex items-center justify-between px-[20px] border border-gray-800 rounded-lg mb-[20px] cursor-pointer">
+            <div
+              onClick={handleToggleAddArtistDialog}
+              className="flex items-center justify-between px-[20px] border border-gray-800 rounded-lg mb-[20px] cursor-pointer"
+            >
               <div className="flex flex-col py-[10px] gap-y-[5px]">
                 <p className="text-[15px] text-gray-700">Featured artist</p>
                 <p className="text-[18px] font-semibold">VSTRA</p>

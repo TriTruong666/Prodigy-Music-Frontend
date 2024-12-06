@@ -9,12 +9,14 @@ import { Avatar } from "@/components/ui/avatar";
 // import components
 import { Navbar } from "@/components/public/navbar/Navbar";
 import { Footer } from "@/components/public/footer/Footer";
+import { MusicPlayer } from "@/components/public/player/MusicPlayer";
 // import assets
 import image from "@/assets/pexels-qhung999-27200179.jpg";
 import logo from "@/assets/prodigy-logo-dark.png";
 export default function Home() {
   return (
-    <div className="font-jost w-screen overflow-x-hidden">
+    <div className="font-jost w-screen overflow-x-hidden relative">
+      <MusicPlayer />
       <Navbar />
       <div className="bg-homepage_background py-32 flex flex-col justify-center items-center text-center gap-y-3">
         <p className="text-2xl font-normal text-background">
