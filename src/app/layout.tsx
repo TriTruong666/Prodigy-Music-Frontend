@@ -9,6 +9,12 @@ const geistJost = localFont({
   weight: "100 900",
 });
 
+const lightPoppins = localFont({
+  src: "../fonts/Poppins-Light.ttf",
+  variable: "--font-light-poppins",
+  weight: "300",
+});
+
 export const metadata: Metadata = {
   title: "Prodigy",
   description: "Author TriTruong666",
@@ -22,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="prodigy-logo-dark.png" type="image/x-icon" />
-      <body className={`${geistJost.variable} antialiased`}>
+      <body
+        className={`${geistJost.variable} ${lightPoppins.variable} antialiased`}
+      >
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>

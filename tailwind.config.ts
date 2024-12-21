@@ -15,6 +15,7 @@ export default withMT({
       },
       fontFamily: {
         jost: ['var(--font-geist-jost)'],
+        light_poppins: ['var(--font-light-poppins)'],
       },
       fontWeight: {
         500: '500',
