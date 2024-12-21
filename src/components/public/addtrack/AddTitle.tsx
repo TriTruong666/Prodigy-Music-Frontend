@@ -12,7 +12,7 @@ interface AddTitleProps {
 export const AddTitle: React.FC<AddTitleProps> = ({ setStep, setProgress }) => {
   const handleGoToNextStep = () => {
     setStep(2);
-    setProgress(25);
+    setProgress(20);
   };
 
   useEffect(() => {

@@ -60,8 +60,8 @@ export const AddArtist: React.FC<AddArtistProps> = ({
     setShowAddButton(false);
   };
   const handleGoToPrevStep = () => {
-    setStep(4);
-    setProgress(75);
+    setStep(5);
+    setProgress(80);
   };
   return (
     <div className="flex flex-col w-[50%] gap-y-[25px]">

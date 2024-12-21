@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 // import components
 import { AddTitle } from "@/components/public/addtrack/AddTitle";
+import { AddImage } from "@/components/public/addtrack/AddImage";
 import { AddFile } from "@/components/public/addtrack/AddFile";
 import { AddGenre } from "@/components/public/addtrack/AddGenre";
 import { AddRelease } from "@/components/public/addtrack/AddRelease";
@@ -53,12 +54,13 @@ export default function AddTrack() {
       </div>
       <div className="flex justify-center my-[100px]">
         {step === 1 && <AddTitle setStep={setStep} setProgress={setProgress} />}
-        {step === 2 && <AddFile setStep={setStep} setProgress={setProgress} />}
-        {step === 3 && <AddGenre setStep={setStep} setProgress={setProgress} />}
-        {step === 4 && (
+        {step === 2 && <AddImage setStep={setStep} setProgress={setProgress} />}
+        {step === 3 && <AddFile setStep={setStep} setProgress={setProgress} />}
+        {step === 4 && <AddGenre setStep={setStep} setProgress={setProgress} />}
+        {step === 5 && (
           <AddRelease setStep={setStep} setProgress={setProgress} />
         )}
-        {step === 5 && (
+        {step === 6 && (
           <AddArtist setStep={setStep} setProgress={setProgress} />
         )}
       </div>

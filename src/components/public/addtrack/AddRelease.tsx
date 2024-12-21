@@ -25,12 +25,12 @@ export const AddRelease: React.FC<AddReleaseProps> = ({
 }) => {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   const handleGoToNextStep = () => {
-    setStep(5);
+    setStep(6);
     setProgress(100);
   };
   const handleGoToPrevStep = () => {
-    setStep(3);
-    setProgress(50);
+    setStep(4);
+    setProgress(60);
   };
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

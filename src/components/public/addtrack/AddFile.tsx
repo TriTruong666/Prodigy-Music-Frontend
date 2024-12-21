@@ -3,7 +3,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { IconContext } from "react-icons";
 import { Button } from "@material-tailwind/react";
 import { IoReturnDownBackSharp } from "react-icons/io5";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface AddFileProps {
   setStep: (value: number) => void;
@@ -11,13 +11,25 @@ interface AddFileProps {
 }
 
 export const AddFile: React.FC<AddFileProps> = ({ setStep, setProgress }) => {
+  const [audioSrc, setAudioSrc] = useState<string | null>(null);
+  // handle file func
+  // Handle file upload
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const fileURL = URL.createObjectURL(file); // Create object URL
+      setAudioSrc(fileURL); // Set it as the source for the audio tag
+      console.log(fileURL);
+    }
+  };
+  // handle utils func
   const handleGoToNextStep = () => {
-    setStep(3);
-    setProgress(50);
+    setStep(4);
+    setProgress(60);
   };
   const handleGoToPrevStep = () => {
-    setStep(1);
-    setProgress(0);
+    setStep(2);
+    setProgress(20);
   };
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -80,6 +92,7 @@ export const AddFile: React.FC<AddFileProps> = ({ setStep, setProgress }) => {
           <input
             id="dropzone-file"
             type="file"
+            onChange={handleFileUpload}
             accept=".mp3,.wav,.flac,.aiff,.wma,.ogg,.aac"
             className="hidden"
           />

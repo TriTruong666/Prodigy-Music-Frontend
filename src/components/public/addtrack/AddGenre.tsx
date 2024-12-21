@@ -45,12 +45,12 @@ const customTheme = {
 
 export const AddGenre: React.FC<AddGenreProps> = ({ setStep, setProgress }) => {
   const handleGoToNextStep = () => {
-    setStep(4);
-    setProgress(75);
+    setStep(5);
+    setProgress(80);
   };
   const handleGoToPrevStep = () => {
-    setStep(2);
-    setProgress(25);
+    setStep(3);
+    setProgress(40);
   };
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
