@@ -18,11 +18,8 @@ export const SignupForm: React.FC<SignupFormProps> = ({ setSignupProcess }) => {
   const toggleConfirmPasswordVisibility = () =>
     setShowConfirmPassword(!showConfirmPassword);
   // handle signup process func
-  const handleSignupProcess = () => {
-    setSignupProcess(3);
-  };
   const handleSignupProcessPrev = () => {
-    setSignupProcess(1);
+    setSignupProcess(2);
   };
   return (
     <form action="" className="w-[50%] self-center flex flex-col gap-y-[10px]">
@@ -108,11 +105,8 @@ export const SignupForm: React.FC<SignupFormProps> = ({ setSignupProcess }) => {
           </div>
         </div>
       </IconContext.Provider>
-      <button
-        onClick={handleSignupProcess}
-        className="py-[12px] px-[20px] rounded-full bg-pink-300 my-[10px] font-semibold hover:bg-opacity-70"
-      >
-        Next Step
+      <button className="py-[12px] px-[20px] rounded-full bg-red-300 my-[10px] font-semibold hover:bg-opacity-70">
+        Create Account
       </button>
       <div className="flex flex-wrap items-center text-sm text-gray-700">
         <p>When you click 'Create account', you agree with Prodigy's</p>

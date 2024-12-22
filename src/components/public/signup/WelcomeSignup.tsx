@@ -41,7 +41,7 @@ export const WelcomeSignup: React.FC<WelcomeSignupProps> = ({
       </p> */}
       <button
         onClick={handleSignupProcessNext}
-        className="py-[12px] px-[20px] rounded-full bg-pink-300 my-[10px] font-semibold hover:bg-opacity-70"
+        className="py-[12px] px-[20px] rounded-full bg-red-300 my-[10px] font-semibold hover:bg-opacity-70"
       >
         Next Step
       </button>

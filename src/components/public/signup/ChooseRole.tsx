@@ -16,8 +16,11 @@ interface ChooseRoleProps {
 export const ChooseRole: React.FC<ChooseRoleProps> = ({ setSignupProcess }) => {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   // handle signup process func
+  const handleSignupProcessNext = () => {
+    setSignupProcess(3);
+  };
   const handleSignupProcessPrev = () => {
-    setSignupProcess(2);
+    setSignupProcess(1);
   };
   return (
     <div className="w-[50%] self-center flex flex-col gap-y-[10px]">
@@ -35,7 +38,7 @@ export const ChooseRole: React.FC<ChooseRoleProps> = ({ setSignupProcess }) => {
         <div
           className={`w-[50%] h-[200px] border rounded-lg cursor-pointer flex flex-col items-center justify-center transition-transform duration-300 ${
             selectedRole === "user"
-              ? "scale-105 border-pink-300"
+              ? "scale-105 border-red-300"
               : "hover:scale-105 hover:border-gray-400"
           }`}
           onClick={() => setSelectedRole("user")}
@@ -43,12 +46,10 @@ export const ChooseRole: React.FC<ChooseRoleProps> = ({ setSignupProcess }) => {
           <SlUser
             size={40}
             className={
-              selectedRole === "user" ? "text-pink-300" : "text-gray-700"
+              selectedRole === "user" ? "text-red-300" : "text-gray-700"
             }
           />
-          <span
-            className={`mt-4 ${selectedRole === "user" && "text-pink-300"}`}
-          >
+          <span className={`mt-4 ${selectedRole === "user" && "text-red-300"}`}>
             User
           </span>
         </div>
@@ -56,7 +57,7 @@ export const ChooseRole: React.FC<ChooseRoleProps> = ({ setSignupProcess }) => {
         <div
           className={`w-[50%] h-[200px] border rounded-lg cursor-pointer flex flex-col items-center justify-center transition-transform duration-300 ${
             selectedRole === "artist"
-              ? "scale-105 border-pink-300"
+              ? "scale-105 border-red-300"
               : "hover:scale-105 hover:border-gray-400"
           }`}
           onClick={() => setSelectedRole("artist")}
@@ -64,18 +65,21 @@ export const ChooseRole: React.FC<ChooseRoleProps> = ({ setSignupProcess }) => {
           <TbMusicHeart
             size={40}
             className={
-              selectedRole === "artist" ? "text-pink-300" : "text-gray-700"
+              selectedRole === "artist" ? "text-red-300" : "text-gray-700"
             }
           />
           <span
-            className={`mt-4 ${selectedRole === "artist" && "text-pink-300"}`}
+            className={`mt-4 ${selectedRole === "artist" && "text-red-300"}`}
           >
             Artist
           </span>
         </div>
       </div>
-      <button className="py-[12px] px-[20px] rounded-full bg-pink-300 my-[10px] font-semibold hover:bg-opacity-70">
-        Create Account
+      <button
+        onClick={handleSignupProcessNext}
+        className="py-[12px] px-[20px] rounded-full bg-red-300 my-[10px] font-semibold hover:bg-opacity-70"
+      >
+        Next Step
       </button>
       {selectedRole === "user" && (
         <p className="text-sm text-gray-700">

@@ -52,7 +52,7 @@ export const Navbar = () => {
         </Link>
         <Link
           className="px-12 py-3 text-homepage_background bg-background font-semibold rounded-md hover:bg-homepage_foreground hover:text-homepage_background transition-colors duration-300"
-          href="/signup"
+          href="/login"
         >
           Login
         </Link>
