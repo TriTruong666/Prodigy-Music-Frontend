@@ -9,6 +9,12 @@ const geistJost = localFont({
   weight: "100 900",
 });
 
+const normalPoppins = localFont({
+  src: "../fonts/Poppins-Regular.ttf",
+  variable: "--font-poppins",
+  weight: "300 900",
+});
+
 const lightPoppins = localFont({
   src: "../fonts/Poppins-Light.ttf",
   variable: "--font-light-poppins",
@@ -29,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="prodigy-logo-dark.png" type="image/x-icon" />
       <body
-        className={`${geistJost.variable} ${lightPoppins.variable} antialiased`}
+        className={`${geistJost.variable} ${lightPoppins.variable} ${normalPoppins.variable} antialiased`}
       >
         <ReduxProvider>{children}</ReduxProvider>
       </body>
