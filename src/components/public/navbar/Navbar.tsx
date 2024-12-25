@@ -2,11 +2,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { PiMusicNotesLight } from "react-icons/pi";
+import { IoSettingsOutline } from "react-icons/io5";
 // import image
 import logo from "@/assets/prodigy-logo-dark.png";
+import artist from "@/assets/artist2.jpg";
 export const Navbar = () => {
   return (
-    <div className="w-full h-[100px] flex items-center px-20 bg-homepage_background justify-between lg:px-10 xl:px-20">
+    <div className="w-full h-[100px] flex items-center px-20 bg-homepage_background justify-between lg:px-10 xl:px-20 fixed z-20">
       <div className="flex w-fit">
         <Link href="/">
           <Image
@@ -17,7 +20,7 @@ export const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="ml-36 flex gap-x-16 text-background pb-1">
+      <div className="ml-[340px] flex gap-x-16 text-background pb-1">
         <Link
           href="/publish/addtrack"
           className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
@@ -28,7 +31,7 @@ export const Navbar = () => {
           href="/publish/confirm"
           className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
-          Explore Prodigy
+          Prodigy World
         </Link>
         <Link
           href="/community"
@@ -43,7 +46,24 @@ export const Navbar = () => {
           Upgrade premium
         </Link>
       </div>
-      <div className="flex gap-x-10 items-center">
+      {/* Logged */}
+      <div className="flex items-center gap-x-[40px]">
+        <p className="py-[12px] px-[30px] bg-homepage_foreground rounded-full text-sm cursor-pointer">
+          Upgrade to Artist Pro
+        </p>
+        <div className="p-[15px] rounded-full cursor-pointer bg-gray-500 bg-opacity-20">
+          <PiMusicNotesLight size={22} className=" text-white " />
+        </div>
+        <div className="flex items-center gap-x-[15px]">
+          <Image
+            src={artist}
+            alt="artist"
+            className="w-[50px] h-[50px] rounded-full object-cover cursor-pointer"
+          />
+        </div>
+      </div>
+      {/* Not Login */}
+      {/* <div className="flex gap-x-10 items-center">
         <Link
           className="font-semibold text-background hover:text-homepage_foreground transition-colors duration-300"
           href="/signup"
@@ -56,7 +76,7 @@ export const Navbar = () => {
         >
           Login
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
