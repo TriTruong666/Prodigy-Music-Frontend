@@ -1,21 +1,24 @@
 "use client";
-
 import { IconContext } from "react-icons";
 import { RiSearchLine } from "react-icons/ri";
 // import components
 import { Navbar } from "@/components/public/navbar/Navbar";
 import { Footer } from "@/components/public/footer/Footer";
 import { MusicPlayer } from "@/components/public/player/MusicPlayer";
+import { DropdownSetting } from "@/components/public/dropdown/DropdownSetting";
 import { TrendingSong } from "@/components/public/homepage/TrendingSong";
 import { FamousArtists } from "@/components/public/homepage/FamousArtists";
 import { TopAlbums } from "@/components/public/homepage/TopAlbums";
+import { PlaylistCollapse } from "@/components/public/collapse/PlaylistCollapse";
 
 export default function Home() {
   return (
-    <div className="font-jost w-screen overflow-x-hidden relative">
-      {/* <MusicPlayer /> */}
+    <div className="font-jost w-screen overflow-hidden relative">
+      <MusicPlayer />
+      <DropdownSetting />
+      <PlaylistCollapse />
       <Navbar />
-      <div className="bg-homepage_background py-32 flex flex-col justify-center items-center text-center gap-y-3 mt-[100px]">
+      <div className="bg-homepage_background py-32 flex flex-col justify-center items-center text-center gap-y-3 mt-[100px] overflow-y-auto">
         <p className="text-2xl font-normal text-background">
           Your Ultimate Music Companion
         </p>

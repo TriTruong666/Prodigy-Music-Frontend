@@ -2,10 +2,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import dialogReducers from "./slices/dialog/dialogSlices";
+import dropdownReducers from "./slices/dropdown/dropdownSlices";
+import collapseReducers from "./slices/collapse/collapseSlices";
+import musicPlayerReducers from "./slices/player/musicPlayerSlices";
 // Create the Redux store
 export const store = configureStore({
   reducer: {
-    dialog: dialogReducers
+    dialog: dialogReducers,
+    dropdown: dropdownReducers,
+    collapse: collapseReducers,
+    player: musicPlayerReducers,
   },
 });
 

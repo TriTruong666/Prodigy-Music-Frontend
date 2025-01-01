@@ -4,10 +4,51 @@ import Image from "next/image";
 import Link from "next/link";
 import { PiMusicNotesLight } from "react-icons/pi";
 import { IoSettingsOutline } from "react-icons/io5";
+import { useAppDispatch } from "@/context/store";
+import { useAppSelector } from "@/context/store";
 // import image
 import logo from "@/assets/prodigy-logo-dark.png";
-import artist from "@/assets/artist2.jpg";
+// import slices
+import {
+  toggleMenuDropdownOn,
+  toggleAnimationMenuDropdownOn,
+  toggleMenuDropdownOff,
+  toggleAnimationMenuDropdownOff,
+} from "@/context/slices/dropdown/dropdownSlices";
+import { togglePlaylistCollapseOn } from "@/context/slices/collapse/collapseSlices";
+import { toggleAnimationPlaylistCollapseOn } from "@/context/slices/collapse/collapseSlices";
 export const Navbar = () => {
+  // dispatch
+  const dispatch = useAppDispatch();
+  // selector
+  const isToggleDropdownMenu = useAppSelector(
+    (state) => state.dropdown.menuDropdown.isToggleDropdown
+  );
+  const isToggleAnimationDropdownMenu = useAppSelector(
+    (state) => state.dropdown.menuDropdown.isToggleAnimationDropdown
+  );
+  // handle dropdown func
+  const handleToggleDropdownMenu = () => {
+    if (!isToggleDropdownMenu) {
+      dispatch(toggleMenuDropdownOn());
+      setTimeout(() => {
+        dispatch(toggleAnimationMenuDropdownOn());
+      }, 1);
+    } else {
+      dispatch(toggleAnimationMenuDropdownOff());
+      setTimeout(() => {
+        dispatch(toggleMenuDropdownOff());
+      }, 300);
+    }
+  };
+  // handle toggle collapse
+  const handleTogglePlaylistCollapseOn = () => {
+    dispatch(togglePlaylistCollapseOn());
+    dispatch(toggleMenuDropdownOff());
+    setTimeout(() => {
+      dispatch(toggleAnimationPlaylistCollapseOn());
+    }, 100);
+  };
   return (
     <div className="w-full h-[100px] flex items-center px-20 bg-homepage_background justify-between lg:px-10 xl:px-20 fixed z-20">
       <div className="flex w-fit">
@@ -51,16 +92,25 @@ export const Navbar = () => {
         <p className="py-[12px] px-[30px] bg-homepage_foreground rounded-full text-sm cursor-pointer">
           Upgrade to Artist Pro
         </p>
-        <div className="p-[15px] rounded-full cursor-pointer bg-gray-500 bg-opacity-20">
+        <div
+          className="p-[15px] rounded-full cursor-pointer bg-gray-500 bg-opacity-20"
+          onClick={handleTogglePlaylistCollapseOn}
+        >
           <PiMusicNotesLight size={22} className=" text-white " />
         </div>
-        <div className="flex items-center gap-x-[15px]">
+        <div
+          onClick={handleToggleDropdownMenu}
+          className="p-[15px] rounded-full cursor-pointer bg-gray-500 bg-opacity-20"
+        >
+          <IoSettingsOutline size={22} className=" text-white " />
+        </div>
+        {/* <div className="flex items-center gap-x-[15px]">
           <Image
             src={artist}
             alt="artist"
             className="w-[50px] h-[50px] rounded-full object-cover cursor-pointer"
           />
-        </div>
+        </div> */}
       </div>
       {/* Not Login */}
       {/* <div className="flex gap-x-10 items-center">
