@@ -6,7 +6,7 @@ export default withMT({
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@material-tailwind/react/**/*.{js,ts,jsx,tsx}", // Add this to include Material Tailwind components
+    "./node_modules/@material-tailwind/react/**/*.{js,ts,jsx,tsx}", // Include Material Tailwind components
   ],
   theme: {
     extend: {
@@ -72,18 +72,25 @@ export default withMT({
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        'menu-dropdown-zoom-in': {
+        "menu-dropdown-zoom-in": {
           "0%": { transform: "scale(0.9)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
-        'menu-dropdown-zoom-out': {
+        "menu-dropdown-zoom-out": {
           "0%": { transform: "scale(1)", opacity: "1" },
           "100%": { transform: "scale(0.9)", opacity: "0" },
         },
       },
       animation: {
-        'menu-dropdown-in': 'menu-dropdown-zoom-in 0.3s ease-out forwards',
-        'menu-dropdown-out': 'menu-dropdown-zoom-out 0.3s ease-in forwards',
+        "menu-dropdown-in": "menu-dropdown-zoom-in 0.3s ease-out forwards",
+        "menu-dropdown-out": "menu-dropdown-zoom-out 0.3s ease-in forwards",
+      },
+    },
+    // Add the nodrag class under the `extend` section
+    nodrag: {
+      DEFAULT: {
+        userSelect: "none",
+        WebkitUserDrag: "none",
       },
     },
   },

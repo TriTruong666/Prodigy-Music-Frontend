@@ -50,7 +50,7 @@ export const Navbar = () => {
     }, 100);
   };
   return (
-    <div className="w-full h-[100px] flex items-center px-20 bg-homepage_background justify-between lg:px-10 xl:px-20 fixed z-20">
+    <div className="w-full h-[100px] flex items-center px-20 bg-black justify-between lg:px-10 xl:px-20 fixed z-20 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-80 backdrop-saturate-100 backdrop-contrast-100">
       <div className="flex w-fit">
         <Link href="/">
           <Image
@@ -64,25 +64,25 @@ export const Navbar = () => {
       <div className="ml-[340px] flex gap-x-16 text-background pb-1">
         <Link
           href="/publish/addtrack"
-          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
+          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-background after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Make music
         </Link>
         <Link
           href="/publish/confirm"
-          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
+          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-background after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Prodigy World
         </Link>
         <Link
           href="/community"
-          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
+          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-background after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Community
         </Link>
         <Link
           href="/publish"
-          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-homepage_foreground after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
+          className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-background after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Upgrade premium
         </Link>

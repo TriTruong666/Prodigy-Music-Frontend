@@ -8,7 +8,7 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <>
-      <footer className="flex px-20 py-14 justify-between bg-homepage_background">
+      <footer className="flex px-20 py-14 justify-between bg-black">
         <div className="flex gap-x-[200px]">
           <div className="flex flex-col gap-y-5 text-background">
             <strong className="text-[18px]">Introduction</strong>
@@ -40,30 +40,28 @@ export const Footer = () => {
             <p className="hover:underline cursor-pointer">Prodigy Premium</p>
           </div>
         </div>
-        <IconContext.Provider value={{ size: "24px", color: "white" }}>
-          <div className="flex gap-x-8">
-            <Link
-              href="https://www.facebook.com/tritruong2603/"
-              className=" p-4 rounded-full bg-black bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
-            >
-              <FaInstagram />
-            </Link>
-            <Link
-              href="https://github.com/TriTruong666"
-              className=" p-4 rounded-full bg-black bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
-            >
-              <PiGithubLogoLight />
-            </Link>
-            <Link
-              href="https://www.facebook.com/tritruong2603/"
-              className=" p-4 rounded-full bg-black bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
-            >
-              <RiFacebookCircleLine />
-            </Link>
-          </div>
-        </IconContext.Provider>
+        <div className="flex gap-x-8">
+          <Link
+            href="https://www.facebook.com/tritruong2603/"
+            className=" p-4 rounded-full border border-gray-300 bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
+          >
+            <FaInstagram size={24} className="text-white" />
+          </Link>
+          <Link
+            href="https://github.com/TriTruong666"
+            className=" p-4 rounded-full border border-gray-300 bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
+          >
+            <PiGithubLogoLight size={24} className="text-white" />
+          </Link>
+          <Link
+            href="https://www.facebook.com/tritruong2603/"
+            className=" p-4 rounded-full border border-gray-300 bg-opacity-30 h-fit hover:bg-opacity-70 transition-all duration-300"
+          >
+            <RiFacebookCircleLine size={24} className="text-white" />
+          </Link>
+        </div>
       </footer>
-      <div className="flex justify-between items-center px-20 py-10 bg-homepage_background border-t border-white">
+      <div className="flex justify-between items-center px-20 py-10 bg-black border-t border-white">
         <p className="text-background">© 2024 Prodigy Entertainment</p>
         <p className="text-background text-[12px]">Version 1.0.666</p>
       </div>

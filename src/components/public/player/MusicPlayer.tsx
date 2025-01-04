@@ -21,7 +21,7 @@ import {
 import { PlayerSlider } from "../slider/PlayerSlider";
 import { VolumeSlider } from "../slider/VolumeSlider";
 import { MusicPlayerContextMenu } from "../contextMenu/MusicPlayerContextMenu";
-
+// import audio
 const AUDIO_URL =
   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
@@ -79,22 +79,6 @@ export const MusicPlayer = () => {
       y,
     });
   };
-
-  // const handleClickOutside = (e: MouseEvent) => {
-  //   if (
-  //     contextMenuRef.current &&
-  //     !contextMenuRef.current.contains(e.target as Node) &&
-  //     contextMenu.visible
-  //   ) {
-  //     setContextMenu({ ...contextMenu, visible: false });
-  //   }
-  // };
-
-  // const handleKeyDown = (e: KeyboardEvent) => {
-  //   if (e.key === "Escape" && contextMenu.visible) {
-  //     setContextMenu({ ...contextMenu, visible: false });
-  //   }
-  // };
 
   // Volume Functions
   const toggleMuteVolume = () => {
@@ -373,8 +357,7 @@ export const MusicPlayer = () => {
               </div>
             </TooltipProvider>
           </div>
-
-          <audio ref={audioRef} src={AUDIO_URL} />
+          <audio ref={audioRef} src="/testsound1.mp3" />
         </div>
       )}
     </>
