@@ -69,7 +69,7 @@ export const Navbar = () => {
           Make music
         </Link>
         <Link
-          href="/publish/confirm"
+          href="/browse"
           className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-background after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300"
         >
           Prodigy World

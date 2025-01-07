@@ -15,6 +15,7 @@ export default withMT({
       },
       fontFamily: {
         jost: ["var(--font-geist-jost)"],
+        manrope: ["var(--manrope)"],
         light_poppins: ["var(--font-light-poppins)"],
         poppins: ["var(--font-regular-poppins)"],
         semibold_poppins: ["var(--font-semibold-poppins)"],
@@ -25,6 +26,7 @@ export default withMT({
       colors: {
         homepage_background: "var(--homepage-background)",
         homepage_foreground: "var(--homepage-foreground)",
+        platform_background: "var(--platform-background)",
         background: "var(--background)",
         foreground: "hsl(var(--foreground))",
         card: {

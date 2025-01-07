@@ -25,6 +25,11 @@ const lightPoppins = localFont({
   weight: "300",
 });
 
+const manropeFont = localFont({
+  src: "../fonts/Manrope-VariableFont_wght.ttf",
+  variable: "--manrope",
+  weight: "100 900",
+});
 export const metadata: Metadata = {
   title: "Prodigy",
   description: "Author TriTruong666",
@@ -39,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="prodigy-logo-dark.png" type="image/x-icon" />
       <body
-        className={`${geistJost.variable} ${lightPoppins.variable} ${normalPoppins.variable} ${semiboldPoppins.variable} antialiased`}
+        className={`${geistJost.variable} ${lightPoppins.variable} ${normalPoppins.variable} ${semiboldPoppins.variable} ${manropeFont.variable} antialiased`}
       >
         <ReduxProvider>{children}</ReduxProvider>
       </body>
